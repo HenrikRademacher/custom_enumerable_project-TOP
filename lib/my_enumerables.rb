@@ -85,7 +85,19 @@ class Array
   # array.my_each do |element|
   #   my_each_results << element * 2
   # end
-  def my_each(&block)
-    each(&block)
+  def my_each
+    old_array = self
+    new_array = []
+    i = 0
+    until i == old_array.length
+      temp = yield(old_array[i])
+      new_array << if temp.nil?
+                     old_array[i]
+                   else
+                     temp
+                   end
+      i += 1
+    end
+    new_array
   end
 end
