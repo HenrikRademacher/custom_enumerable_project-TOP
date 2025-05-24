@@ -3,12 +3,21 @@
 # Does stuff
 module Enumerable
   # Your code goes here
+
   # called like enumerable.my_all? { |value| value > 0 }
   def my_all?
     each do |element|
       return false unless yield(element)
     end
     true
+  end
+
+  # called like enumerable.my_any?(&:even?)
+  def my_any?
+    each do |element|
+      return true if yield(element)
+    end
+    false
   end
 end
 
