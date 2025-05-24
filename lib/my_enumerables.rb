@@ -50,6 +50,14 @@ module Enumerable
     end
     current_total
   end
+
+  def my_map
+    new_array = []
+    each do |element|
+      new_array << yield(element)
+    end
+    new_array
+  end
 end
 
 # You will first have to define my_each
