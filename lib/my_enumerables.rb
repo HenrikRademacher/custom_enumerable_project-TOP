@@ -42,6 +42,14 @@ module Enumerable
       i += 1
     end
   end
+
+  def my_inject(initial_value)
+    current_total = initial_value
+    each do |element|
+      current_total = yield(current_total, element)
+    end
+    current_total
+  end
 end
 
 # You will first have to define my_each
