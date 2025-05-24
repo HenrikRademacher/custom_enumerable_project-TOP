@@ -30,6 +30,18 @@ module Enumerable
     end
     i
   end
+
+  # called like:
+  # enumerable.my_each_with_index do |element, index|
+  #  my_each_with_index_results << [element * 2, index * 2]
+  # end
+  def my_each_with_index
+    i = 0
+    each do |element|
+      yield(element, i)
+      i += 1
+    end
+  end
 end
 
 # You will first have to define my_each
