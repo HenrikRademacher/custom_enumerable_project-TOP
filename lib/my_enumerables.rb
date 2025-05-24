@@ -65,6 +65,14 @@ module Enumerable
     end
     true
   end
+
+  def my_select
+    new_array = []
+    each do |element|
+      new_array << element if yield(element)
+    end
+    new_array
+  end
 end
 
 # You will first have to define my_each
