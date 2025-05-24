@@ -19,6 +19,17 @@ module Enumerable
     end
     false
   end
+
+  # called like enumerable.my_count { |value| value > 5 } or blockless
+  def my_count
+    return size unless block_given?
+
+    i = 0
+    each do |element|
+      i += 1 if yield(element)
+    end
+    i
+  end
 end
 
 # You will first have to define my_each
