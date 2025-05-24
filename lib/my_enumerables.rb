@@ -38,4 +38,11 @@ end
 # to this method
 class Array
   # Define my_each here
+  # called like:
+  # array.my_each do |element|
+  #   my_each_results << element * 2
+  # end
+  def my_each(&block)
+    each(&block)
+  end
 end
