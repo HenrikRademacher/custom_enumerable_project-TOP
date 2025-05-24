@@ -1,5 +1,15 @@
+# frozen_string_literal: true
+
+# Does stuff
 module Enumerable
   # Your code goes here
+  # called like enumerable.my_all? { |value| value > 0 }
+  def my_all?
+    each do |element|
+      return false unless yield(element)
+    end
+    true
+  end
 end
 
 # You will first have to define my_each
