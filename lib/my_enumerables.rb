@@ -58,6 +58,13 @@ module Enumerable
     end
     new_array
   end
+
+  def my_none?
+    each do |element|
+      return false if yield(element)
+    end
+    true
+  end
 end
 
 # You will first have to define my_each
